@@ -1,0 +1,49 @@
+
+<!--{% extends "base.html" %}-->
+<!--{% block title %}Книги за {{ pub_date }}{% endblock %}-->
+<!--{% block content %}-->
+<!--<div class="container">-->
+<!--    <h1>Книги за {{ pub_date }}</h1>-->
+<!--    <ul>-->
+<!--        {% for book in books %}-->
+<!--        <li>{{ book.name }} by {{ book.author }}</li>-->
+<!--        {% endfor %}-->
+<!--    </ul>-->
+<!--    <div>-->
+<!--        {% if previous_date %}-->
+<!--        <a href="{% url 'list_books_by_date' previous_date %}">Предыдущая дата</a>-->
+<!--        {% endif %}-->
+<!--        {% if next_date %}-->
+<!--        <a href="{% url 'list_books_by_date' next_date %}">Следующая дата</a>-->
+<!--        {% endif %}-->
+<!--    </div>-->
+<!--</div>-->
+<!--{% endblock %}-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Books List</title>
+</head>
+<body>
+    <h1>Books published on {{ pub_date }}</h1>
+    {% if books %}
+        <ul>
+        {% for book in books %}
+            <li>{{ book.title }} - {{ book.author }} - {{ book.published_date }}</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No books available for this date.</p>
+    {% endif %}
+
+    {% if previous_date %}
+        <a href="{% url 'list_books_by_date' previous_date %}">Previous Date</a>
+    {% endif %}
+
+    {% if next_date %}
+        <a href="{% url 'list_books_by_date' next_date %}">Next Date</a>
+    {% endif %}
+</body>
+</html>
