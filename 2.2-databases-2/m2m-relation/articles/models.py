@@ -33,3 +33,7 @@ class Relationship(models.Model):
     )
     tag_name = models.CharField(max_length=20)
 
+class Relationship(models.Model):
+    article = models.ForeignKey(Article, on_delete=models.CASCADE)
+    tag = models.ForeignKey(Tag, on_delete=models.CASCADE)
+    is_main = models.BooleanField(default=False)

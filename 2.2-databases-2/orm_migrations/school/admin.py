@@ -11,3 +11,4 @@ class StudentAdmin(admin.ModelAdmin):
 @admin.register(Teacher)
 class TeacherAdmin(admin.ModelAdmin):
     pass
+
